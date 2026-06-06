@@ -108,6 +108,16 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.style.transition = 'opacity 1s ease-in';
     }, 100);
 
+    // Corrige caminhos de imagens para GitHub Pages
+    if (window.basePath) {
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+            if (img.src && img.src.includes('images/')) {
+                img.src = window.basePath + '/' + img.src;
+            }
+        });
+    }
+
     // Inicializa o carrossel
     createIndicators();
     startAutoPlay();

@@ -6,7 +6,12 @@
     <title>Para Minha Namorada ❤️</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" href="images/icon.png">
-
+    <script>
+      // Detecta o caminho base para GitHub Pages
+      const isGitHubPages = window.location.hostname.includes('github.io');
+      const repoName = 'Carta-amor';
+      window.basePath = isGitHubPages ? `/${repoName}` : '';
+    </script>
   </head>
   <body>
     <div class="container">
