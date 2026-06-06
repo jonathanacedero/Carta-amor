@@ -8,23 +8,7 @@
     <script>
       // Detecta o caminho base para GitHub Pages IMEDIATAMENTE
       window.basePath = window.location.hostname.includes('github.io') ? '/Carta-amor' : '';
-      
-      // Se está no GitHub Pages, substitui dinamicamente os src das imagens e áudio
-      if (window.basePath) {
-        document.addEventListener('readystatechange', function() {
-          if (document.readyState === 'loading') return;
-          document.querySelectorAll('img[src*="images/"]').forEach(img => {
-            if (!img.src.includes(window.basePath)) {
-              img.src = window.basePath + '/' + img.src;
-            }
-          });
-          document.querySelectorAll('audio[src*="teste/"]').forEach(audio => {
-            if (!audio.src.includes(window.basePath)) {
-              audio.src = window.basePath + '/' + audio.src;
-            }
-          });
-        });
-      }
+      console.log('Base Path:', window.basePath);
     </script>
     <link rel="icon" type="image/png" href="images/icon.png">
   </head>

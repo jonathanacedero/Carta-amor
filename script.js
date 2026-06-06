@@ -108,33 +108,52 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.style.transition = 'opacity 1s ease-in';
     }, 100);
 
-    // Corrige caminhos de imagens e áudio para GitHub Pages (segunda passagem de segurança)
-    if (window.basePath) {
-        document.querySelectorAll('img[src*="images/"]').forEach(img => {
-            if (!img.src.includes(window.basePath)) {
-                img.src = window.basePath + '/' + img.src;
-            }
-        });
-        document.querySelectorAll('audio[src*="teste/"]').forEach(audio => {
-            if (!audio.src.includes(window.basePath)) {
-                audio.src = window.basePath + '/' + audio.src;
-            }
-        });
+    // Corrige caminhos para GitHub Pages
+    console.log('Corrigindo caminhos... basePath:', window.basePath);
+
+    // Corrige imagens
+    document.querySelectorAll('img[src*="images/"]').forEach(img => {
+        if (window.basePath && !img.src.includes(window.basePath)) {
+            img.src = window.basePath + '/' + img.src;
+            console.log('Imagem corrigida:', img.src);
+        }
+    });
+
+    // Corrige áudio
+    const audio = document.getElementById('backgroundAudio');
+    if (audio) {
+        console.log('Áudio encontrado. Src atual:', audio.src);
+        if (window.basePath && !audio.src.includes(window.basePath)) {
+            audio.src = window.basePath + '/' + audio.src;
+            console.log('Áudio corrigido para:', audio.src);
+        }
     }
 
     // Inicializa o carrossel
     createIndicators();
     startAutoPlay();
 
-    // Permite reprodução de áudio ao clicar em qualquer lugar
-    document.addEventListener('click', function enableAudio() {
-        const audio = document.getElementById('backgroundAudio');
-        if (audio) {
+    // Tenta reproduzir o áudio
+    if (audio) {
+        setTimeout(() => {
             audio.muted = false;
-            audio.play().catch(err => console.log('Autoplay não permitido:', err));
-        }
-        document.removeEventListener('click', enableAudio);
-    }, { once: true });
+            console.log('Tentando reproduzir áudio...');
+            audio.play().then(() => {
+                console.log('✓ Áudio tocando!');
+            }).catch(err => {
+                console.log('✗ Erro ao reproduzir áudio:', err);
+                // Tenta novamente ao primeiro clique
+                console.log('Aguardando clique do usuário...');
+                document.addEventListener('click', function enableAudio() {
+                    console.log('Clique detectado! Tentando reproduzir novamente...');
+                    audio.play().then(() => {
+                        console.log('✓ Áudio tocando após clique!');
+                    }).catch(e => console.log('✗ Erro no clique:', e));
+                    document.removeEventListener('click', enableAudio);
+                }, { once: true });
+            });
+        }, 500);
+    }
 });
 
 // Efeito de música ao fundo (opcional)
