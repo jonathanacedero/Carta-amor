@@ -108,11 +108,16 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.style.transition = 'opacity 1s ease-in';
     }, 100);
 
-    // Corrige caminhos de imagens para GitHub Pages (segunda passagem de segurança)
+    // Corrige caminhos de imagens e áudio para GitHub Pages (segunda passagem de segurança)
     if (window.basePath) {
         document.querySelectorAll('img[src*="images/"]').forEach(img => {
             if (!img.src.includes(window.basePath)) {
                 img.src = window.basePath + '/' + img.src;
+            }
+        });
+        document.querySelectorAll('audio[src*="audios/"]').forEach(audio => {
+            if (!audio.src.includes(window.basePath)) {
+                audio.src = window.basePath + '/' + audio.src;
             }
         });
     }

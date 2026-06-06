@@ -9,13 +9,18 @@
       // Detecta o caminho base para GitHub Pages IMEDIATAMENTE
       window.basePath = window.location.hostname.includes('github.io') ? '/Carta-amor' : '';
       
-      // Se está no GitHub Pages, substitui dinamicamente os src das imagens
+      // Se está no GitHub Pages, substitui dinamicamente os src das imagens e áudio
       if (window.basePath) {
         document.addEventListener('readystatechange', function() {
           if (document.readyState === 'loading') return;
           document.querySelectorAll('img[src*="images/"]').forEach(img => {
             if (!img.src.includes(window.basePath)) {
               img.src = window.basePath + '/' + img.src;
+            }
+          });
+          document.querySelectorAll('audio[src*="audios/"]').forEach(audio => {
+            if (!audio.src.includes(window.basePath)) {
+              audio.src = window.basePath + '/' + audio.src;
             }
           });
         });
@@ -30,6 +35,7 @@
         <div class="hearts-bg"></div>
         <h1 class="title">Para você, o maior amor que ja tive na minha vida! 💕</h1>
         <p class="subtitle">Leia a carta enquanto toca a música porfavor</p>
+        <audio id="backgroundAudio" src="audios/audio.MP3" autoplay loop controls></audio>
         <button class="btn-start" onclick="scrollToSection('gallery')">
           Clique aqui para começar
         </button>
