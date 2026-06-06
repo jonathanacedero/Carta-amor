@@ -108,11 +108,10 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.style.transition = 'opacity 1s ease-in';
     }, 100);
 
-    // Corrige caminhos de imagens para GitHub Pages
+    // Corrige caminhos de imagens para GitHub Pages (segunda passagem de segurança)
     if (window.basePath) {
-        const images = document.querySelectorAll('img');
-        images.forEach(img => {
-            if (img.src && img.src.includes('images/')) {
+        document.querySelectorAll('img[src*="images/"]').forEach(img => {
+            if (!img.src.includes(window.basePath)) {
                 img.src = window.basePath + '/' + img.src;
             }
         });
