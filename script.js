@@ -107,52 +107,11 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.style.opacity = '1';
         document.body.style.transition = 'opacity 1s ease-in';
     }, 100);
+});
 
-    // Corrige caminhos para GitHub Pages
-    console.log('Corrigindo caminhos... basePath:', window.basePath);
+// Inicializa o carrossel
+createIndicators();
+startAutoPlay();
 
-    // Corrige imagens
-    document.querySelectorAll('img[src*="images/"]').forEach(img => {
-        if (window.basePath && !img.src.includes(window.basePath)) {
-            img.src = window.basePath + '/' + img.src;
-            console.log('Imagem corrigida:', img.src);
-        }
-    });
+app.use(express.static(__dirname));
 
-    // Corrige e configura áudio
-    const audio = document.getElementById('backgroundAudio');
-    if (audio) {
-        // Define o src correto
-        let audioSrc = 'teste/music.MP3';
-        if (window.basePath) {
-            audioSrc = window.basePath + '/' + audioSrc;
-        }
-        audio.src = audioSrc;
-        console.log('Áudio configurado para:', audio.src);
-
-        // Log de debug para verificar o caminho
-        console.log('Hostname:', window.location.hostname);
-        console.log('URL completa do áudio:', window.location.origin + '/' + audioSrc);
-    }
-
-    // Inicializa o carrossel
-    createIndicators();
-    startAutoPlay();
-
-    // Tenta reproduzir o áudio
-    if (audio) {
-        setTimeout(() => {
-            audio.muted = false;
-            console.log('Tentando reproduzir áudio de:', audio.src);
-            audio.play().then(() => {
-                console.log('✓ Áudio tocando!');
-            }).catch(err => {
-                console.log('✗ Erro ao reproduzir áudio:', err.message);
-                // Tenta novamente ao primeiro clique
-                console.log('Aguardando clique do usuário...');
-                document.addEventListener('click', function enableAudio() {
-                    console.log('Clique detectado! Tentando reproduzir novamente...');
-                    audio.play().then(() => {
-                        console.log('✓ Áudio tocando após clique!');
-                    }).catch(e => console.log('✗ Erro no clique:', e.message));
-                }

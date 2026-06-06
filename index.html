@@ -13,13 +13,21 @@
     <link rel="icon" type="image/png" href="images/icon.png">
   </head>
   <body>
+    <audio id="bg-music" autoplay loop muted>
+      <source src="teste/music.MP3" type="audio/mpeg">
+  Seu navegador não suporta áudio.
+    </audio>
+  <button onclick="document.getElementById('bg-music').muted = false;">
+    Ativar música 🎵
+  </button>
+
+
     <div class="container">
       <!-- Seção de Boas-vindas -->
       <section class="welcome">
         <div class="hearts-bg"></div>
         <h1 class="title">Para você, o maior amor que ja tive na minha vida! 💕</h1>
         <p class="subtitle">Leia a carta enquanto toca a música porfavor</p>
-        <audio autoplay src="https://drive.google.com/file/d/10Vl0dYFAjSYLVWcG4N5XYXSTFtJNGUj7/view?usp=sharing"></audio>
         <button class="btn-start" onclick="scrollToSection('gallery')">
           Clique aqui para começar
         </button>
