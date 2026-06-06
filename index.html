@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Para Minha Namorada ❤️</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Seção de Boas-vindas -->
+      <section class="welcome">
+        <div class="hearts-bg"></div>
+        <h1 class="title">Para você, o maior amor que ja tive na minha vida! 💕</h1>
+        <p class="subtitle">Leia a carta enquanto toca a música porfavor</p>
+        <button class="btn-start" onclick="scrollToSection('gallery')">
+          Clique aqui para começar
+        </button>
+      </section>
+
+      <!-- Carrossel de Fotos -->
+      <section id="gallery" class="gallery">
+        <h2>Nossos Momentos</h2>
+        <div class="carousel-container">
+          <div class="carousel">
+            <div class="carousel-track" id="carouselTrack">
+              <div class="carousel-slide"><img src="images/foto1.jpeg" alt="Foto 1" /></div>
+              <div class="carousel-slide"><img src="images/foto2.jpg" alt="Foto 2" /></div>
+              <div class="carousel-slide"><img src="images/foto3.jpeg" alt="Foto 3" /></div>
+              <div class="carousel-slide"><img src="images/foto4.jpg" alt="Foto 4" /></div>
+              <div class="carousel-slide"><img src="images/foto5.jpeg" alt="Foto 5" /></div>
+              <div class="carousel-slide"><img src="images/foto6.jpg" alt="Foto 6" /></div>
+              <div class="carousel-slide"><img src="images/foto7.jpeg" alt="Foto 7" /></div>
+              <div class="carousel-slide"><img src="images/foto8.jpg" alt="Foto 8" /></div>
+              <div class="carousel-slide"><img src="images/foto9.jpeg" alt="Foto 9" /></div>
+              <div class="carousel-slide"><img src="images/foto10.jpg" alt="Foto 10" /></div>
+              <div class="carousel-slide"><img src="images/foto11.jpeg" alt="Foto 11" /></div>
+              <div class="carousel-slide"><img src="images/foto12.jpg" alt="Foto 12" /></div>
+              <div class="carousel-slide"><img src="images/foto13.jpeg" alt="Foto 13" /></div>
+              <div class="carousel-slide"><img src="images/foto14.jpg" alt="Foto 14" /></div>
+              <div class="carousel-slide"><img src="images/foto15.jpeg" alt="Foto 15" /></div>
+              <div class="carousel-slide"><img src="images/foto16.jpg" alt="Foto 16" /></div>
+              <div class="carousel-slide"><img src="images/foto17.jpeg" alt="Foto 17" /></div>
+              <div class="carousel-slide"><img src="images/foto18.jpg" alt="Foto 18" /></div>
+              <div class="carousel-slide"><img src="images/foto19.jpeg" alt="Foto 19" /></div>
+              <div class="carousel-slide"><img src="images/foto20.jpg" alt="Foto 20" /></div>
+              <div class="carousel-slide"><img src="images/foto21.jpeg" alt="Foto 21" /></div>
+              <div class="carousel-slide"><img src="images/foto22.jpg" alt="Foto 22" /></div>
+              <div class="carousel-slide"><img src="images/foto23.jpeg" alt="Foto 23" /></div>
+              <div class="carousel-slide"><img src="images/foto24.jpg" alt="Foto 24" /></div>
+              <div class="carousel-slide"><img src="images/foto25.jpeg" alt="Foto 25" /></div>
+            </div>
+          </div>
+          <button class="carousel-btn carousel-prev" onclick="previousSlide()">❮</button>
+          <button class="carousel-btn carousel-next" onclick="nextSlide()">❯</button>
+        </div>
+        <div class="carousel-indicators" id="indicators"></div>
+        <button class="btn-next" onclick="scrollToSection('message')">
+          Próximo →
+        </button>
+      </section>
+
+      <!-- Mensagem Pessoal -->
+      <section id="message" class="message">
+        <h2>Uma "e-carta" do meu coração</h2>
+        <div class="message-box">
+          <p class="message-text">
+            Meu amor,<br /><br />
+            Sei que não é esse tipo de carta que você gostaria de receber, mas por aqui eu consigo me expressar melhor,
+            eu te amo demais e amo todos os nossos momentos juntos, eu prometo que sempre vou estar aqui para você
+            (tanto o site quando eu pessoalmente, pode ser que eu vá atualizando algumas coisas aqui no site pra quando eu lembrar de você, quem sabe :P). <br>
+            Mas, eu gostaria também pedir minhas mais sinceras desculpas, por tudo que ja fiz você passar, sei que já está cansada de escutar desculpas e mais desculpas,
+            mas mesmo estando a dois anos juntos eu to descobrindo coisas novas sobre o amor e como cuidar de outra pessoa quando você a ama, e eu quero dizer que acho que estou melhorando,
+            mas eu preciso que você converse comigo sempre que algo te deixar mal, ou algo que eu fiz que queria que fosse diferente, você sabe mais do que ninguém que eu tenho problema de perceber algumas coisas,
+            e por isso eu peço sua ajuda, eu quero casar com você e quero que tenhamos nossa própria familia para podermos viver a nossa vida com as nossas coisas. <br>
+            Eu quero muito que a gente não seja apenas mais um namoro, eu quero mesmo que possamos conquistar juntos nossas coisas, e eu torço muito para isso, e estou fazendo de tudo para que esse sonho se torne realidade,
+            porque o meu maior sonho é ser chamado de pai por uma cópia pequenina de você! <br>
+            E mais, teremos uma casa na praia com uma Kombi amarela!
+            
+            <br /><br />
+            Obrigado por ser quem você é. Obrigado por estar comigo.<br /><br />
+            Com todo meu amor,<br />
+            <span class="signature">Seu Hamlet</span> ❤️
+          </p>
+        </div>
+        <button class="btn-next" onclick="scrollToSection('playlist')">
+          Próximo →
+        </button>
+      </section>
+
+      <!-- Playlist -->
+      <section id="playlist" class="playlist">
+        <audio autoplay>
+            <source src="audios/Tim Bernardes - BB (Garupa de Moto Amarela) (Audio Oficial + Lyrics).MP3" type="audio/mp3">
+
+        </audio>
+        <h2>Nossa Música</h2>
+        <div class="music-player">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4OY4IB4Thqi6XOReCgGEuC?utm_source=generator&utm_campaign=audioBedPreview&utm_medium=embed" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          <p class="music-desc">Essa música me faz lembrar de você</p>
+        </div>
+    
+      <!-- Seção Final -->
+      <section id="final" class="final">
+        <h2>Te Amo demais! 🤍</h2>
+        <div class="confetti-container" id="confetti"></div>
+        <button class="btn-love" onclick="triggerConfetti()">
+          💕 Clique aqui! 💕
+        </button>
+        <p class="final-message">Você é o amor da minha vida!</p>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
