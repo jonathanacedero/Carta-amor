@@ -125,6 +125,16 @@ document.addEventListener('DOMContentLoaded', function () {
     // Inicializa o carrossel
     createIndicators();
     startAutoPlay();
+
+    // Permite reprodução de áudio ao clicar em qualquer lugar
+    document.addEventListener('click', function enableAudio() {
+        const audio = document.getElementById('backgroundAudio');
+        if (audio) {
+            audio.muted = false;
+            audio.play().catch(err => console.log('Autoplay não permitido:', err));
+        }
+        document.removeEventListener('click', enableAudio);
+    }, { once: true });
 });
 
 // Efeito de música ao fundo (opcional)
