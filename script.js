@@ -119,14 +119,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Corrige áudio
+    // Corrige e configura áudio
     const audio = document.getElementById('backgroundAudio');
     if (audio) {
-        console.log('Áudio encontrado. Src atual:', audio.src);
-        if (window.basePath && !audio.src.includes(window.basePath)) {
-            audio.src = window.basePath + '/' + audio.src;
-            console.log('Áudio corrigido para:', audio.src);
+        // Define o src correto
+        let audioSrc = 'teste/music.MP3';
+        if (window.basePath) {
+            audioSrc = window.basePath + '/' + audioSrc;
         }
+        audio.src = audioSrc;
+        console.log('Áudio configurado para:', audio.src);
     }
 
     // Inicializa o carrossel
@@ -137,27 +139,16 @@ document.addEventListener('DOMContentLoaded', function () {
     if (audio) {
         setTimeout(() => {
             audio.muted = false;
-            console.log('Tentando reproduzir áudio...');
+            console.log('Tentando reproduzir áudio de:', audio.src);
             audio.play().then(() => {
                 console.log('✓ Áudio tocando!');
             }).catch(err => {
-                console.log('✗ Erro ao reproduzir áudio:', err);
+                console.log('✗ Erro ao reproduzir áudio:', err.message);
                 // Tenta novamente ao primeiro clique
                 console.log('Aguardando clique do usuário...');
                 document.addEventListener('click', function enableAudio() {
                     console.log('Clique detectado! Tentando reproduzir novamente...');
                     audio.play().then(() => {
                         console.log('✓ Áudio tocando após clique!');
-                    }).catch(e => console.log('✗ Erro no clique:', e));
-                    document.removeEventListener('click', enableAudio);
-                }, { once: true });
-            });
-        }, 500);
-    }
-});
-
-// Efeito de música ao fundo (opcional)
-function playHeartSound() {
-    // Você pode adicionar um áudio aqui se quiser
-    // new Audio('audios/coração.mp3').play();
+                    }).catch(e => console.log('✗ Erro no clique:', e.message));
 }
