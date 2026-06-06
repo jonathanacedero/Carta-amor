@@ -151,4 +151,4 @@ document.addEventListener('DOMContentLoaded', function () {
                     audio.play().then(() => {
                         console.log('✓ Áudio tocando após clique!');
                     }).catch(e => console.log('✗ Erro no clique:', e.message));
-}
+                }
