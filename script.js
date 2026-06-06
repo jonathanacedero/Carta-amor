@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 img.src = window.basePath + '/' + img.src;
             }
         });
-        document.querySelectorAll('audio[src*="audios/"]').forEach(audio => {
+        document.querySelectorAll('audio[src*="teste/"]').forEach(audio => {
             if (!audio.src.includes(window.basePath)) {
                 audio.src = window.basePath + '/' + audio.src;
             }
