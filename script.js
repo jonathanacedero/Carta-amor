@@ -129,6 +129,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         audio.src = audioSrc;
         console.log('Áudio configurado para:', audio.src);
+
+        // Log de debug para verificar o caminho
+        console.log('Hostname:', window.location.hostname);
+        console.log('URL completa do áudio:', window.location.origin + '/' + audioSrc);
     }
 
     // Inicializa o carrossel
