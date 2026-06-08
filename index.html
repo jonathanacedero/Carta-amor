@@ -1,37 +1,45 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Para Minha Namorada ❤️</title>
-    <link rel="stylesheet" href="style.css" />
-    <script>
-      // Detecta o caminho base para GitHub Pages IMEDIATAMENTE
-      window.basePath = window.location.hostname.includes('github.io') ? '/Carta-amor' : '';
-      console.log('Base Path:', window.basePath);
-    </script>
-    <link rel="icon" type="image/png" href="images/icon.png">
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Minha Namorada ❤️</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="images/icon.png">
+</head>
+
+<body>
+
+  <div id="musica">
     <audio id="bg-music" autoplay loop muted>
       <source src="music.MP3" type="audio/mpeg">
-  Seu navegador não suporta áudio.
+      Seu navegador não suporta áudio.
     </audio>
-  <button onclick="document.getElementById('bg-music').muted = false;">
-    Ativar música 🎵
-  </button>
-
-
-    <div class="container">
-      <!-- Seção de Boas-vindas -->
-      <section class="welcome">
-        <div class="hearts-bg"></div>
-        <h1 class="title">Para você, o maior amor que ja tive na minha vida! 💕</h1>
-        <p class="subtitle">Leia a carta enquanto toca a música porfavor</p>
-        <button class="btn-start" onclick="scrollToSection('gallery')">
-          Clique aqui para começar
-        </button>
-      </section>
+    <button onclick="document.getElementById('bg-music').muted = false;">
+      Ativar música 🎵
+    </button>
+  </div>
+  <div class="container">
+    <!-- Seção de Boas-vindas -->
+    <section class="welcome">
+      <div class="hearts-bg"></div>
+      <h1 class="title">Para você, o maior amor que ja tive na minha vida! 💕</h1>
+      <p class="subtitle">Leia a carta enquanto toca a música porfavor</p>
+      <button class="btn-start" onclick="scrollToSection('playlist')">
+        Clique aqui para começar
+      </button>
+    </section>
+    <!-- Playlist -->
+    <section id="playlist" class="playlist">
+      <h2>Nossa Música</h2>
+      <div class="music-player">
+        <iframe style="border-radius:12px"
+          src="https://open.spotify.com/embed/track/4OY4IB4Thqi6XOReCgGEuC?utm_source=generator&utm_campaign=audioBedPreview&utm_medium=embed"
+          width="100%" height="152" frameBorder="0" allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <p class="music-desc">Essa música me faz lembrar de você</p>
+      </div>
 
       <!-- Carrossel de Fotos -->
       <section id="gallery" class="gallery">
@@ -82,35 +90,31 @@
           <p class="message-text">
             Meu amor,<br /><br />
             Sei que não é esse tipo de carta que você gostaria de receber, mas por aqui eu consigo me expressar melhor,
-            eu te amo demais e amo todos os nossos momentos juntos, eu prometo que sempre vou estar aqui para você
-            (tanto o site quando eu pessoalmente, pode ser que eu vá atualizando algumas coisas aqui no site pra quando eu lembrar de você, quem sabe :P). <br>
-            Mas, eu gostaria também pedir minhas mais sinceras desculpas, por tudo que ja fiz você passar, sei que já está cansada de escutar desculpas e mais desculpas,
-            mas mesmo estando a dois anos juntos eu to descobrindo coisas novas sobre o amor e como cuidar de outra pessoa quando você a ama, e eu quero dizer que acho que estou melhorando,
-            mas eu preciso que você converse comigo sempre que algo te deixar mal, ou algo que eu fiz que queria que fosse diferente, você sabe mais do que ninguém que eu tenho problema de perceber algumas coisas,
-            e por isso eu peço sua ajuda, eu quero casar com você e quero que tenhamos nossa própria familia para podermos viver a nossa vida com as nossas coisas. <br>
-            Eu quero muito que a gente não seja apenas mais um namoro, eu quero mesmo que possamos conquistar juntos nossas coisas, e eu torço muito para isso, e estou fazendo de tudo para que esse sonho se torne realidade,
+            eu te amo demais e amo todos os nossos momentos juntos, eu prometo que sempre vou estar aqui para você. <br>
+            Mas, eu gostaria também pedir minhas mais sinceras desculpas, por tudo que ja fiz você passar, sei que já
+            está cansada de escutar desculpas e mais desculpas,
+            mas mesmo estando a dois anos juntos eu to descobrindo coisas novas sobre o amor e como cuidar de outra
+            pessoa quando você a ama, e eu quero dizer que acho que estou melhorando,
+            mas eu preciso que você converse comigo sempre que algo te deixar mal, ou algo que eu fiz que queria que
+            fosse diferente, você sabe mais do que ninguém que eu tenho problema de perceber algumas coisas,
+            e por isso eu peço sua ajuda, eu quero casar com você e quero que tenhamos nossa própria familia para
+            podermos viver a nossa vida com as nossas coisas. <br>
+            Eu quero muito que a gente não seja apenas mais um namoro, eu quero mesmo que possamos conquistar juntos
+            nossas coisas, e eu torço muito para isso, e estou fazendo de tudo para que esse sonho se torne realidade,
             porque o meu maior sonho é ser chamado de pai por uma cópia pequenina de você! <br>
             E mais, teremos uma casa na praia com uma Kombi amarela!
-            
+
             <br /><br />
             Obrigado por ser quem você é. Obrigado por estar comigo.<br /><br />
             Com todo meu amor,<br />
             <span class="signature">Seu Hamlet</span> ❤️
           </p>
         </div>
-        <button class="btn-next" onclick="scrollToSection('playlist')">
+        <button class="btn-next" onclick="scrollToSection('final')">
           Próximo →
         </button>
       </section>
 
-      <!-- Playlist -->
-      <section id="playlist" class="playlist">
-        <h2>Nossa Música</h2>
-        <div class="music-player">
-          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4OY4IB4Thqi6XOReCgGEuC?utm_source=generator&utm_campaign=audioBedPreview&utm_medium=embed" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-          <p class="music-desc">Essa música me faz lembrar de você</p>
-        </div>
-    
       <!-- Seção Final -->
       <section id="final" class="final">
         <h2>Te Amo demais! 🤍</h2>
@@ -120,8 +124,9 @@
         </button>
         <p class="final-message">Você é o amor da minha vida!</p>
       </section>
-    </div>
+  </div>
 
-    <script src="script.js"></script>
-  </body>
+  <script src="script.js"></script>
+</body>
+
 </html>

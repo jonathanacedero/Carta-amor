@@ -58,7 +58,16 @@ body {
     opacity: 0.7;
   }
 }
-
+.musica button {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
 /* Welcome Section */
 .welcome {
   height: 100vh;
@@ -294,12 +303,6 @@ section h2 {
   color: #f5576c;
   font-size: 1.3rem;
 }
-
-/* Playlist */
-/* .playlist {
-  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-} */
-
 .playlist h2 {
   color: white;
   margin-bottom: 40px;
